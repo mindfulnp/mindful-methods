@@ -556,7 +556,7 @@
     section { padding: 64px 24px; }
 
     /* Services */
-    .services-grid { grid-template-columns: 1fr; gap: 0; }
+    .services-grid { grid-template-columns: 1fr; gap: 16px; }
 
     /* About */
     .about-section {
@@ -580,6 +580,12 @@
 
     /* Testimonials inline grid override */
     section [style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Blog */
+    #resources { padding: 64px 24px; }
+    #resources [style*="grid-template-columns: repeat(3, 1fr)"] {
       grid-template-columns: 1fr !important;
     }
 
@@ -621,6 +627,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#approach">Approach</a></li>
+    <li><a href="#resources">Resources</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="https://app.practicq.com" target="_blank" class="nav-portal">
@@ -637,6 +644,7 @@
   <a href="#services" onclick="document.getElementById('mobileNav').classList.remove('open')">Services</a>
   <a href="#about" onclick="document.getElementById('mobileNav').classList.remove('open')">About</a>
   <a href="#approach" onclick="document.getElementById('mobileNav').classList.remove('open')">Approach</a>
+  <a href="#resources" onclick="document.getElementById('mobileNav').classList.remove('open')">Resources</a>
   <a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')">Contact</a>
   <a href="https://app.practicq.com" target="_blank">Patient Portal</a>
   <button class="nav-cta" onclick="window.open('https://care.headway.co/providers/alexander-renteria','_blank')">Book Consultation</button>
@@ -1084,6 +1092,53 @@
   <a href="https://care.headway.co/providers/alexander-renteria" class="btn-booking" target="_blank">Book a Free Consultation</a>
   <div class="booking-contact">
     Questions? Call <a href="tel:+17145025691">(714) 502-5691</a> &nbsp;·&nbsp; <a href="mailto:hello@mindfulmethodsinc.com">hello@mindfulmethodsinc.com</a> &nbsp;·&nbsp; <a href="https://care.headway.co/providers/alexander-renteria" target="_blank">Book on Headway</a>
+  </div>
+</section>
+
+<!-- BLOG / RESOURCES -->
+<section style="background: var(--sage-light); padding: 100px 80px;" id="resources">
+  <div class="section-tag">Resources</div>
+  <h2 class="section-title">Insights & <em>education</em></h2>
+  <p class="section-sub">Evidence-based articles to help you understand your mental health and feel confident about getting care.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+
+    <a href="what-to-expect-first-psychiatric-appointment.html" style="text-decoration: none;" class="fade-in">
+      <div style="background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--sage-border); transition: box-shadow 0.25s, transform 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(44,53,48,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background: linear-gradient(135deg, #7A9E8E 0%, #3d6b5f 100%); height: 160px; display: flex; align-items: center; justify-content: center; font-size: 48px;">🧠</div>
+        <div style="padding: 28px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage-dark); font-weight: 500; margin-bottom: 10px;">Patient Guide</div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); line-height: 1.3; margin-bottom: 12px;">What to Expect at Your First Psychiatric Appointment</h3>
+          <p style="font-size: 14px; color: var(--text-mid); line-height: 1.7; font-weight: 300;">Feeling nervous about your first visit? Here's exactly what happens — and why there's nothing to worry about.</p>
+          <div style="margin-top: 20px; font-size: 13px; color: var(--sage-dark); font-weight: 500;">Read article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="adhd-in-adults.html" style="text-decoration: none;" class="fade-in delay-1">
+      <div style="background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--sage-border); transition: box-shadow 0.25s, transform 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(44,53,48,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background: linear-gradient(135deg, #5a8c80 0%, #2c5f54 100%); height: 160px; display: flex; align-items: center; justify-content: center; font-size: 48px;">⚡</div>
+        <div style="padding: 28px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage-dark); font-weight: 500; margin-bottom: 10px;">ADHD</div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); line-height: 1.3; margin-bottom: 12px;">ADHD in Adults: Why So Many People Are Diagnosed Later in Life</h3>
+          <p style="font-size: 14px; color: var(--text-mid); line-height: 1.7; font-weight: 300;">ADHD doesn't always look like a hyperactive child. Many adults carry it undiagnosed for decades — here's why.</p>
+          <div style="margin-top: 20px; font-size: 13px; color: var(--sage-dark); font-weight: 500;">Read article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="medication-vs-therapy.html" style="text-decoration: none;" class="fade-in delay-2">
+      <div style="background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--sage-border); transition: box-shadow 0.25s, transform 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(44,53,48,0.10)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background: linear-gradient(135deg, #3d6b5f 0%, #2C3530 100%); height: 160px; display: flex; align-items: center; justify-content: center; font-size: 48px;">💊</div>
+        <div style="padding: 28px;">
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage-dark); font-weight: 500; margin-bottom: 10px;">Treatment</div>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); line-height: 1.3; margin-bottom: 12px;">Medication vs. Therapy: Do You Need Both?</h3>
+          <p style="font-size: 14px; color: var(--text-mid); line-height: 1.7; font-weight: 300;">One of the most common questions in psychiatry — and the answer is more nuanced than you might think.</p>
+          <div style="margin-top: 20px; font-size: 13px; color: var(--sage-dark); font-weight: 500;">Read article →</div>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
