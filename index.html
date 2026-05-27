@@ -244,18 +244,19 @@
   /* ── SERVICES ── */
   .services-section { background: var(--cream); }
   .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
   .service-card {
     background: white; padding: 44px 36px;
     border: 1px solid var(--sage-border);
+    border-radius: 16px;
     transition: box-shadow 0.25s, transform 0.25s;
     position: relative; overflow: hidden;
   }
   .service-card::before {
     content: '';
     position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%;
+    width: 100%; height: 3px;
     background: transparent;
     transition: background 0.25s;
   }
@@ -460,6 +461,31 @@
   .fade-in.delay-2 { transition-delay: 0.2s; }
   .fade-in.delay-3 { transition-delay: 0.3s; }
 
+  /* ── FAQ ── */
+  .faq-item {
+    border-bottom: 1px solid var(--sage-border);
+  }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 0; text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500; color: var(--text-dark);
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--sage-dark); }
+  .faq-icon {
+    font-size: 24px; font-weight: 300; color: var(--sage);
+    transition: transform 0.3s; flex-shrink: 0; margin-left: 16px;
+  }
+  .faq-q.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    display: none; padding: 0 0 24px;
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.8; font-weight: 300; max-width: 640px;
+  }
+  .faq-a.open { display: block; }
+
   /* ── MOBILE NAV TOGGLE ── */
   .nav-hamburger {
     display: none; flex-direction: column; gap: 5px;
@@ -548,6 +574,17 @@
 
     /* Approach */
     .approach-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr !important; }
+
+    /* Testimonials inline grid override */
+    section [style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* FAQ */
+    #faq { padding: 64px 24px; }
 
     /* Booking */
     .booking-section { padding: 64px 24px; }
@@ -869,6 +906,159 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section style="background: var(--cream); padding: 100px 80px;">
+  <div class="section-tag">Patient Reviews</div>
+  <h2 class="section-title">What <em>patients</em> are saying</h2>
+  <p class="section-sub">Verified patient reviews. All 5-star rated.</p>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 0;">
+
+    <div class="fade-in" style="background: white; border: 1px solid var(--sage-border); border-radius: 12px; padding: 36px 32px; position: relative;">
+      <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+        <span style="color: #f5a623; font-size: 18px;">★★★★★</span>
+      </div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; font-weight: 300; color: var(--text-dark); line-height: 1.65; margin-bottom: 24px;">"I really loved how I was listened to and treated. I am slowly getting the answers I needed and I could never be more grateful."</p>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); border: 1px solid var(--sage-border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--sage-dark); font-weight: 500;">E</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--text-dark);">Ema L.</div>
+          <div style="font-size: 11px; color: var(--text-accent); letter-spacing: 0.04em;">Verified Patient</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in delay-1" style="background: var(--sage-deeper); border-radius: 12px; padding: 36px 32px; position: relative;">
+      <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+        <span style="color: #f5d080; font-size: 18px;">★★★★★</span>
+      </div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; font-weight: 300; color: white; line-height: 1.65; margin-bottom: 24px;">"Great stuff and great service — highly recommended."</p>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: white; font-weight: 500;">S</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 500; color: white;">Siddiq H.</div>
+          <div style="font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;">Verified Patient</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in delay-2" style="background: white; border: 1px solid var(--sage-border); border-radius: 12px; padding: 36px 32px; position: relative;">
+      <div style="display: flex; gap: 4px; margin-bottom: 20px;">
+        <span style="color: #f5a623; font-size: 18px;">★★★★★</span>
+      </div>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; font-weight: 300; color: var(--text-dark); line-height: 1.65; margin-bottom: 24px;">"Me atendió bien."</p>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--sage-light); border: 1px solid var(--sage-border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--sage-dark); font-weight: 500;">P</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--text-dark);">Pedro H.</div>
+          <div style="font-size: 11px; color: var(--text-accent); letter-spacing: 0.04em;">Verified Patient · Video Visit</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </section>
+
+<!-- FAQ -->
+<section style="background: white; padding: 100px 80px;" id="faq">
+  <div class="section-tag">FAQ</div>
+  <h2 class="section-title">Common <em>questions</em></h2>
+  <p class="section-sub">Everything you need to know before your first appointment.</p>
+
+  <div style="max-width: 760px; margin: 0 auto;">
+
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you accept insurance?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes — we accept most major insurance plans through Headway. You can verify your coverage and book directly at <a href="https://care.headway.co/providers/alexander-renteria" target="_blank" style="color: var(--sage-dark);">care.headway.co</a>. Out-of-pocket options are also available with transparent pricing.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens at the first appointment?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Your first visit is a comprehensive psychiatric evaluation — typically 60 minutes. We'll review your personal and psychiatric history, current symptoms, medications, and goals. By the end, we'll have a working diagnosis and initial treatment plan tailored to you.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long are sessions?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        The initial evaluation is 60 minutes. Follow-up appointments are typically 15–30 minutes depending on your needs and the complexity of your care.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you prescribe medication?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes, when clinically appropriate. As a Board-Certified Psychiatric-Mental Health Nurse Practitioner, Alex is fully licensed to prescribe and manage psychiatric medications. Medication is always discussed collaboratively — never prescribed without your understanding and consent.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I join my telehealth session?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Sessions are conducted via <a href="https://doxy.me/alex" target="_blank" style="color: var(--sage-dark);">doxy.me/alex</a> — a secure, HIPAA-compliant video platform. No app download is required. Simply click the link from any device with a camera and microphone a few minutes before your appointment.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you see children or adolescents?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Mindful Methods currently serves adults 18 and older. If you are seeking care for a minor, we recommend contacting your pediatrician for a referral to a child and adolescent psychiatrist.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is your cancellation policy?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        We require at least 48 hours notice to cancel or reschedule an appointment. Late cancellations or no-shows may be subject to a fee. We understand that life happens — please reach out as soon as possible if you need to make a change.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is telehealth as effective as in-person care?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes. Research consistently shows that telehealth psychiatric care is as effective as in-person treatment for most conditions, including depression, anxiety, ADHD, and bipolar disorder. It also removes common barriers like commute time, parking, and scheduling conflicts — making it easier to stay consistent with your care.
+      </div>
+    </div>
+
+    <div class="faq-item fade-in delay-2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I get started?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Getting started is simple. Click <a href="https://care.headway.co/providers/alexander-renteria" target="_blank" style="color: var(--sage-dark);">Book a Free Consultation</a> to schedule online through Headway — no referral needed. You'll verify your insurance, choose a time, and receive a confirmation with your session link.
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- BOOKING / CONTACT -->
 <section class="booking-section" id="contact">
   <div class="section-tag">Get Started</div>
@@ -950,6 +1140,22 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    // Open clicked if it was closed
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
 </script>
 
 </body>
