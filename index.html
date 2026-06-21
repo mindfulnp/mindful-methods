@@ -134,6 +134,20 @@
     max-width: 440px; margin-bottom: 44px; font-weight: 400;
   }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-quickfacts {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .quickfact-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--text-dark); font-weight: 500;
+  }
+  .quickfact-icon {
+    width: 20px; height: 20px; flex-shrink: 0;
+    color: white; background: var(--sage);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .quickfact-icon svg { width: 12px; height: 12px; }
   .btn-primary {
     background: var(--sage);
     color: white; border: none; cursor: pointer;
@@ -351,6 +365,32 @@
 
   /* ── APPROACH ── */
   .approach-section { background: white; }
+
+  /* ── WHY CHOOSE ── */
+  .why-section {
+    background: var(--sage-light);
+    padding: 100px 80px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 48px auto 0;
+  }
+  .why-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: white; border: 1px solid var(--sage-border);
+    border-radius: 10px; padding: 20px 24px;
+  }
+  .why-check {
+    width: 22px; height: 22px; flex-shrink: 0;
+    background: var(--sage); color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .why-check svg { width: 13px; height: 13px; }
+  .why-text { font-size: 14.5px; color: var(--text-dark); font-weight: 500; line-height: 1.5; }
   .approach-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
     margin-top: 0;
@@ -558,6 +598,10 @@
   @media (max-width: 768px) {
     .insurance-section { padding: 56px 24px; }
     .insurance-badge { font-size: 13px; padding: 10px 18px; }
+    .why-section { padding: 56px 24px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-quickfacts { gap: 8px; }
+    .quickfact-item { font-size: 13px; }
 
     /* Nav */
     nav { padding: 0 24px; }
@@ -706,6 +750,20 @@
     <p class="hero-sub">
       Evidence-based psychiatric evaluation, medication management, and psychotherapy — delivered with warmth and precision through secure telehealth.
     </p>
+    <div class="hero-quickfacts">
+      <div class="quickfact-item">
+        <span class="quickfact-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+        Accepting New Patients Throughout California
+      </div>
+      <div class="quickfact-item">
+        <span class="quickfact-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+        Most Major Insurance Accepted
+      </div>
+      <div class="quickfact-item">
+        <span class="quickfact-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+        No Referral Needed to Get Started
+      </div>
+    </div>
     <div class="hero-actions">
       <a href="https://care.headway.co/providers/alexander-renteria" class="btn-primary" target="_blank">Schedule Appointment</a>
       <a href="#about" class="btn-ghost">Meet Alex</a>
@@ -926,6 +984,10 @@
     <p class="about-body">
       With specialized training in psychiatric evaluation, psychopharmacology, and psychotherapy, Alex brings a collaborative, patient-centered approach to every encounter — honoring each person's unique story while grounding care in the latest clinical evidence.
     </p>
+    <br>
+    <p class="about-body">
+      Before specializing in psychiatry, Alex spent years working in the ICU, med-surg, and case management — experience that shapes a whole-patient perspective, attentive to how physical health, mental health, and daily life are always connected.
+    </p>
     <div style="margin-top: 36px;">
       <a href="https://care.headway.co/providers/alexander-renteria" class="btn-primary" target="_blank">Book with Alex</a>
       <a href="https://www.psychologytoday.com/us/psychiatrists/alexander-renteria-cerritos-ca/1674484" class="btn-ghost" target="_blank" style="margin-top:12px; display:inline-flex; align-items:center; gap:8px;">
@@ -956,6 +1018,38 @@
       <div class="approach-num">03</div>
       <div class="approach-title">Support Continuously</div>
       <p class="approach-desc">Mental health is a journey, not a destination. We provide ongoing monitoring, follow-up, and responsive care between appointments to keep you thriving.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-section">
+  <div class="section-tag" style="text-align:center;">The Difference</div>
+  <h2 class="section-title" style="text-align:center;">Why Patients Choose <em>Mindful Methods</em></h2>
+  <div class="why-grid">
+    <div class="why-item fade-in">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">Board-Certified PMHNP</span>
+    </div>
+    <div class="why-item fade-in delay-1">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">California Telehealth, Statewide</span>
+    </div>
+    <div class="why-item fade-in delay-2">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">Evidence-Based Medication Management</span>
+    </div>
+    <div class="why-item fade-in">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">Adult ADHD Expertise</span>
+    </div>
+    <div class="why-item fade-in delay-1">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">Collaborative, Patient-Centered Planning</span>
+    </div>
+    <div class="why-item fade-in delay-2">
+      <span class="why-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+      <span class="why-text">Most Major Insurance Accepted</span>
     </div>
   </div>
 </section>
