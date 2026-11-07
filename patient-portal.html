@@ -399,7 +399,23 @@ function toggleMenu(btn){
     spans[2].style.transform='';
   }
 }
-window.addEventListener('load',function(){window.scrollTo(0,0);});
+// Prevent IntakeQ widget from hijacking scroll on page load
+(function(){
+  var scrollLocked=true;
+  var _scrollTo=window.scrollTo.bind(window);
+  window.scrollTo=function(x,y){if(!scrollLocked)_scrollTo(x,y);};
+  var _scrollBy=window.scrollBy.bind(window);
+  window.scrollBy=function(x,y){if(!scrollLocked)_scrollBy(x,y);};
+  var origSIV=Element.prototype.scrollIntoView;
+  Element.prototype.scrollIntoView=function(){if(!scrollLocked)origSIV.apply(this,arguments);};
+  setTimeout(function(){
+    scrollLocked=false;
+    window.scrollTo=_scrollTo;
+    window.scrollBy=_scrollBy;
+    Element.prototype.scrollIntoView=origSIV;
+    _scrollTo(0,0);
+  },2000);
+})();
 
 function closeMenu(){
   const menu=document.getElementById('mobileMenu');
