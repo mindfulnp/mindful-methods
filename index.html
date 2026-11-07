@@ -1530,5 +1530,19 @@ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
 }
 </script>
 
+<script>
+// Fix hash anchor scroll offset when arriving from another page
+if(window.location.hash){
+  var target = document.querySelector(window.location.hash);
+  if(target){
+    setTimeout(function(){
+      var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+      var top = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({top: top, behavior: 'instant'});
+    }, 50);
+  }
+}
+</script>
+
 </body>
 </html>
