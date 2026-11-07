@@ -399,6 +399,8 @@ function toggleMenu(btn){
     spans[2].style.transform='';
   }
 }
+window.addEventListener('load',function(){window.scrollTo(0,0);});
+
 function closeMenu(){
   const menu=document.getElementById('mobileMenu');
   const btn=document.querySelector('.hamburger');
