@@ -232,6 +232,13 @@ footer{background:#0E1A17;color:rgba(255,255,255,0.65);padding:72px 0 40px;}
     </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="conditions.html">Conditions</a>
+  <a href="what-to-expect-first-psychiatric-appointment.html">What to Expect</a>
+  <a href="patient-portal.html">Patient Portal</a>
+  <a href="https://care.headway.co/providers/alexander-renteria" class="mobile-cta">Book an Appointment →</a>
+</div>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -368,10 +375,27 @@ footer{background:#0E1A17;color:rgba(255,255,255,0.65);padding:72px 0 40px;}
 <script>
 (function(){
   const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}); 
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
   },{threshold:0.12});
   document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 })();
+
+function toggleMenu(btn){
+  const menu=document.getElementById('mobileMenu');
+  if(!menu)return;
+  const open=menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+  const spans=btn.querySelectorAll('span');
+  if(open){
+    spans[0].style.transform='translateY(6.5px) rotate(45deg)';
+    spans[1].style.opacity='0';
+    spans[2].style.transform='translateY(-6.5px) rotate(-45deg)';
+  } else {
+    spans[0].style.transform='';
+    spans[1].style.opacity='';
+    spans[2].style.transform='';
+  }
+}
 </script>
 </body>
 </html>
