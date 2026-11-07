@@ -206,7 +206,26 @@ footer{background:#0E1A17;color:rgba(255,255,255,0.65);padding:72px 0 40px;}
 }
 
 </style>
-<script>(function (c) {window.intakeq="69bcc6f881664c78660f7e69";window.intakeqClientArea=true; var i = c.createElement("script");i.type = "text/javascript";i.async = true;i.src = "https://intakeq.com/js/widget.min.js?1";document.head.appendChild(i);})(document);</script>
+<script>
+// Load IntakeQ only after user interaction to prevent autofocus scroll
+function loadIntakeQ(){
+  if(window._intakeqLoaded) return;
+  window._intakeqLoaded = true;
+  window.intakeq = "69bcc6f881664c78660f7e69";
+  window.intakeqClientArea = true;
+  var i = document.createElement("script");
+  i.type = "text/javascript";
+  i.async = true;
+  i.src = "https://intakeq.com/js/widget.min.js?1";
+  document.head.appendChild(i);
+}
+// Load on first scroll or click — user is engaging, autofocus scroll won't matter
+window.addEventListener('scroll', loadIntakeQ, {once:true});
+window.addEventListener('click', loadIntakeQ, {once:true});
+window.addEventListener('touchstart', loadIntakeQ, {once:true});
+// Fallback: load after 5s regardless
+setTimeout(loadIntakeQ, 5000);
+</script>
 </head>
 <body>
 
@@ -399,14 +418,6 @@ function toggleMenu(btn){
     spans[2].style.transform='';
   }
 }
-// Lock scroll until IntakeQ finishes initializing
-document.documentElement.style.overflow='hidden';
-document.body.style.overflow='hidden';
-setTimeout(function(){
-  document.documentElement.style.overflow='';
-  document.body.style.overflow='';
-  window.scrollTo(0,0);
-},3000);
 
 function closeMenu(){
   const menu=document.getElementById('mobileMenu');
