@@ -399,27 +399,14 @@ function toggleMenu(btn){
     spans[2].style.transform='';
   }
 }
-// Prevent IntakeQ widget from hijacking scroll on page load
-(function(){
-  var scrollLocked=true;
-  var _scrollTo=window.scrollTo.bind(window);
-  window.scrollTo=function(x,y){if(!scrollLocked)_scrollTo(x,y);};
-  var _scrollBy=window.scrollBy.bind(window);
-  window.scrollBy=function(x,y){if(!scrollLocked)_scrollBy(x,y);};
-  var origSIV=Element.prototype.scrollIntoView;
-  Element.prototype.scrollIntoView=function(){if(!scrollLocked)origSIV.apply(this,arguments);};
-  var origFocus=HTMLElement.prototype.focus;
-  HTMLElement.prototype.focus=function(opts){if(!scrollLocked)origFocus.apply(this,arguments);else origFocus.call(this,{preventScroll:true});};
-  document.addEventListener('scroll',function(e){if(scrollLocked){window.scrollTo(0,0);}},true);
-  setTimeout(function(){
-    scrollLocked=false;
-    window.scrollTo=_scrollTo;
-    window.scrollBy=_scrollBy;
-    Element.prototype.scrollIntoView=origSIV;
-    HTMLElement.prototype.focus=origFocus;
-    _scrollTo(0,0);
-  },3000);
-})();
+// Lock scroll until IntakeQ finishes initializing
+document.documentElement.style.overflow='hidden';
+document.body.style.overflow='hidden';
+setTimeout(function(){
+  document.documentElement.style.overflow='';
+  document.body.style.overflow='';
+  window.scrollTo(0,0);
+},3000);
 
 function closeMenu(){
   const menu=document.getElementById('mobileMenu');
