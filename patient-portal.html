@@ -408,13 +408,17 @@ function toggleMenu(btn){
   window.scrollBy=function(x,y){if(!scrollLocked)_scrollBy(x,y);};
   var origSIV=Element.prototype.scrollIntoView;
   Element.prototype.scrollIntoView=function(){if(!scrollLocked)origSIV.apply(this,arguments);};
+  var origFocus=HTMLElement.prototype.focus;
+  HTMLElement.prototype.focus=function(opts){if(!scrollLocked)origFocus.apply(this,arguments);else origFocus.call(this,{preventScroll:true});};
+  document.addEventListener('scroll',function(e){if(scrollLocked){window.scrollTo(0,0);}},true);
   setTimeout(function(){
     scrollLocked=false;
     window.scrollTo=_scrollTo;
     window.scrollBy=_scrollBy;
     Element.prototype.scrollIntoView=origSIV;
+    HTMLElement.prototype.focus=origFocus;
     _scrollTo(0,0);
-  },2000);
+  },3000);
 })();
 
 function closeMenu(){
